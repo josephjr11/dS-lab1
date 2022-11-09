@@ -1,0 +1,64 @@
+#include<stdio.h> 
+int queue[100],n,front=-1,rear=-1,ch,i;
+void Enqueue();
+void Dequeue();
+void display();
+int main()
+{
+printf("Enter the size of circular queue:");
+scanf("%d",&n);
+printf("\n 1--Enqueue \n 2--Dequeue \n 3--Exit");
+do
+{
+printf("\n Select the choice:");
+scanf("%d",&ch);
+switch(ch)
+{ 
+case 1:
+	Enqueue();
+	break;
+case 2:
+	Dequeue();
+	break;
+case 3:
+	break;
+default :
+	printf("!!Invalid choice!! \n"); 
+}
+}
+while(ch!=3);
+}
+void Enqueue()
+{ 
+if((front==rear+1)||(front==0 && rear==n-1)) 
+	printf("queue is full \n"); 
+else
+{
+if(front==-1) 
+	front=0;
+	rear=(rear+1)%n; 
+	printf("Enter elements to enqueue"); 
+	scanf("%d",&queue[rear]); 
+	}
+for(i=front;i<=rear;i++)
+{printf("%d\t",queue[i]);
+}
+}
+void Dequeue()
+{
+int element; 
+if(front==-1) 
+printf("Circular queue is Empty \n");
+else
+{
+int element=queue[front];
+if(front==rear)
+front=rear=-1; 
+  else 
+  {
+   front=(front+1)%n;
+   }
+   printf("%d is removed",element);
+   }
+   }
+   
