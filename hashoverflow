@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define T_size 10
+int h[T_size]={NULL};
+
+void insert()
+{
+int key,index,i,flag=0,hkey;
+printf("\nEnter value to insert to hashtable-------");
+scanf("%d",&key);
+hkey=key%T_size;
+for(i=0;i<T_size;i++){
+	index=(hkey+i)% T_size;
+	if(h[index]==NULL)
+	{h[index]=key;
+	break;
+	}}
+if(i==T_size)
+printf("\n!!!!!Hash table is full!!!!");
+}
+void search()
+{
+int key,index,i,flag=0,hkey;
+printf("\nEnter element to search----- ");
+scanf("%d",&key);
+hkey=key% T_size;
+for(i=0;i<T_size;i++){
+index=(hkey+i)%T_size;
+if(h[index]==key)
+{printf("Element is found at index----- %d",index);
+break;
+}
+}
+if(i==T_size)
+	printf("\n!!!!Not found!!!!!");
+	}
+void display()
+{int i;
+printf("\n----Elements in hash table is----");
+for(i=0;i<T_size;i++)
+if(h[i]==NULL)
+{printf("\n%d| NULL",i);
+}
+else{
+printf("\n%d|%d",i,h[i]);
+}
+printf("\n");
+}
+
+int main()
+{
+int cho,i;
+while(1)
+{
+printf("\n1---Insert\n2---display\n3---search\n4---exit");
+printf("\nenter choice---");
+scanf("%d",&cho);
+switch(cho)
+{case 1:
+	insert();
+	break;
+ case 2:
+ 	display();
+ 	break;
+ case 3:
+ 	search();
+ 	break;
+ case 4:
+ 	exit(0);
+ 	}}}
+  
+  
+  output-
+  -
+  
